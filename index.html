@@ -9,14 +9,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --black: #0a0a0a;
-      --white: #f5f2ee;
-      --gold: #c9a84c;
-      --gold-light: #e8c97a;
-      --gray-dark: #1a1a1a;
-      --gray-mid: #2d2d2d;
-      --gray-text: #888;
-      --accent: #c9a84c;
+      --black: #1e1e2a;
+      --white: #f7f5f0;
+      --gold: #b8914a;
+      --gold-light: #d4a85c;
+      --gray-dark: #2c2c3a;
+      --gray-mid: #3a3a4a;
+      --gray-text: #aaa;
+      --accent: #b8914a;
+      --surface: #252535;
+      --text-muted: rgba(247,245,240,0.6);
+      --text-faint: rgba(247,245,240,0.38);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -40,10 +43,10 @@
       justify-content: space-between;
       align-items: center;
       padding: 24px 60px;
-      background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+      background: linear-gradient(to bottom, rgba(30,30,42,0.97) 0%, transparent 100%);
       transition: background 0.4s;
     }
-    nav.scrolled { background: rgba(10,10,10,0.97); }
+    nav.scrolled { background: rgba(30,30,42,0.98); }
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.4rem;
@@ -82,15 +85,16 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
-                  radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 50%);
+      background: radial-gradient(ellipse at 70% 50%, rgba(184,145,74,0.12) 0%, transparent 60%),
+                  radial-gradient(ellipse at 20% 80%, rgba(100,90,160,0.08) 0%, transparent 50%),
+                  linear-gradient(135deg, #1e1e2a 0%, #28283c 50%, #1e1e2a 100%);
     }
     .hero-grid {
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(184,145,74,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,145,74,0.06) 1px, transparent 1px);
       background-size: 80px 80px;
       mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
     }
@@ -125,7 +129,7 @@
     .hero-tagline {
       font-size: 0.78rem;
       letter-spacing: 0.1em;
-      color: rgba(245,242,238,0.55);
+      color: rgba(247,245,240,0.55);
       margin-bottom: 48px;
       line-height: 2;
       text-transform: uppercase;
@@ -195,8 +199,8 @@
       position: absolute;
       bottom: -16px;
       left: -16px;
-      background: var(--gray-dark);
-      border: 1px solid rgba(201,168,76,0.3);
+      background: var(--surface);
+      border: 1px solid rgba(184,145,74,0.35);
       padding: 18px 24px;
       z-index: 2;
     }
@@ -270,7 +274,7 @@
     .about-text p {
       font-size: 0.9rem;
       line-height: 1.95;
-      color: rgba(245,242,238,0.7);
+      color: rgba(247,245,240,0.72);
       margin-bottom: 20px;
     }
     .about-stats {
@@ -291,14 +295,14 @@
       font-size: 0.65rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(245,242,238,0.45);
+      color: rgba(247,245,240,0.45);
       margin-top: 6px;
       display: block;
     }
     .about-highlights { display: flex; flex-direction: column; gap: 24px; }
     .highlight-card {
-      background: var(--gray-dark);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.07);
       border-left: 3px solid var(--gold);
       padding: 28px 32px;
       transition: border-color 0.3s, background 0.3s;
@@ -313,14 +317,14 @@
     .highlight-card p {
       font-size: 0.75rem;
       line-height: 1.8;
-      color: rgba(245,242,238,0.5);
+      color: rgba(247,245,240,0.52);
     }
 
     /* ── EXPERIENCE ── */
     #experience { border-top: 1px solid rgba(255,255,255,0.05); }
     .exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
     .exp-card {
-      background: var(--gray-dark);
+      background: var(--surface);
       padding: 48px 40px;
       position: relative;
       overflow: hidden;
@@ -367,7 +371,7 @@
     .exp-desc {
       font-size: 0.78rem;
       line-height: 1.85;
-      color: rgba(245,242,238,0.6);
+      color: rgba(247,245,240,0.62);
     }
     .exp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
     .tag {
@@ -381,15 +385,15 @@
 
     /* ── INVESTMENTS ── */
     #investments {
-      border-top: 1px solid rgba(255,255,255,0.05);
-      background: var(--gray-dark);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      background: var(--surface);
       max-width: 100%;
       padding: 120px;
     }
     .investments-inner { max-width: 1300px; margin: 0 auto; }
     .inv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 0; }
     .inv-card {
-      background: var(--black);
+      background: var(--gray-dark);
       padding: 40px 36px;
       border-top: 2px solid transparent;
       transition: border-color 0.3s;
@@ -411,7 +415,7 @@
     .inv-desc {
       font-size: 0.73rem;
       line-height: 1.75;
-      color: rgba(245,242,238,0.45);
+      color: rgba(247,245,240,0.48);
     }
 
     /* ── EDUCATION / AWARDS ── */
@@ -438,13 +442,13 @@
     }
     .edu-info p {
       font-size: 0.72rem;
-      color: rgba(245,242,238,0.45);
+      color: rgba(247,245,240,0.48);
       line-height: 1.7;
     }
     .awards-list { display: flex; flex-direction: column; gap: 28px; }
     .award-item {
-      background: var(--gray-dark);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.07);
       padding: 28px 32px;
       position: relative;
     }
@@ -461,63 +465,55 @@
     }
     .award-item p {
       font-size: 0.73rem;
-      color: rgba(245,242,238,0.45);
+      color: rgba(247,245,240,0.48);
       line-height: 1.7;
     }
 
     /* ── CONTACT ── */
     #contact {
-      border-top: 1px solid rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255,255,255,0.06);
       text-align: center;
     }
-    .contact-grid {
+    .social-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 2px;
       margin-top: 64px;
-      margin-bottom: 64px;
     }
-    .contact-item {
-      background: var(--gray-dark);
-      padding: 48px 32px;
+    .social-card {
+      background: var(--surface);
+      padding: 52px 32px;
+      border-top: 2px solid transparent;
+      transition: border-color 0.3s, background 0.3s;
     }
-    .contact-item a {
-      color: var(--white);
+    .social-card:hover { border-color: var(--gold); background: var(--gray-mid); }
+    .social-card a {
       text-decoration: none;
-      transition: color 0.3s;
-    }
-    .contact-item a:hover { color: var(--gold); }
-    .contact-item .c-label {
-      font-size: 0.55rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
       display: block;
     }
-    .contact-item .c-value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 300;
-    }
-    .social-row {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-      margin-top: 48px;
-    }
-    .social-link {
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
+    .social-card .s-platform {
+      font-size: 0.55rem;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: rgba(245,242,238,0.45);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: color 0.3s, border-color 0.3s;
-      padding-bottom: 2px;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
     }
-    .social-link:hover { color: var(--gold); border-color: var(--gold); }
+    .social-card .s-handle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--white);
+      transition: color 0.3s;
+      display: block;
+    }
+    .social-card:hover .s-handle { color: var(--gold-light); }
+    .social-card .s-desc {
+      font-size: 0.65rem;
+      color: rgba(247,245,240,0.38);
+      margin-top: 10px;
+      letter-spacing: 0.06em;
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -535,7 +531,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(10,10,10,0.95);
+      background: rgba(20,20,32,0.97);
       z-index: 200;
       opacity: 0;
       pointer-events: none;
@@ -575,7 +571,7 @@
     .modal-body p {
       font-size: 0.88rem;
       line-height: 2;
-      color: rgba(245,242,238,0.7);
+      color: rgba(247,245,240,0.72);
       margin-bottom: 24px;
     }
     .modal-body ul {
@@ -586,7 +582,7 @@
     .modal-body ul li {
       font-size: 0.82rem;
       line-height: 1.85;
-      color: rgba(245,242,238,0.6);
+      color: rgba(247,245,240,0.62);
       padding-left: 20px;
       position: relative;
       margin-bottom: 12px;
@@ -623,6 +619,7 @@
       .hero-content { padding: 0 32px; gap: 48px; }
       .exp-grid { grid-template-columns: 1fr 1fr; }
       .inv-grid { grid-template-columns: 1fr 1fr; }
+      .social-grid { grid-template-columns: 1fr 1fr; }
       footer { padding: 32px; }
     }
     @media (max-width: 768px) {
@@ -636,7 +633,7 @@
       .exp-grid { grid-template-columns: 1fr; }
       .edu-grid { grid-template-columns: 1fr; gap: 48px; }
       .inv-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
+      .social-grid { grid-template-columns: 1fr; }
       .modal-overlay { padding: 24px; }
       footer { flex-direction: column; gap: 12px; text-align: center; }
     }
@@ -907,25 +904,35 @@
 <section id="contact">
   <p class="section-label reveal">Conecta</p>
   <h2 class="section-title reveal">Hablemos de<br><em>tu proyecto</em></h2>
-  <div class="contact-grid reveal">
-    <div class="contact-item">
-      <span class="c-label">Email</span>
-      <a href="mailto:jborge@icloud.com" class="c-value">jborge@icloud.com</a>
+  <div class="social-grid reveal">
+    <div class="social-card">
+      <a href="https://www.linkedin.com/in/joseanborge/" target="_blank">
+        <span class="s-platform">LinkedIn</span>
+        <span class="s-handle">Jose Antonio Borge</span>
+        <span class="s-desc">Perfil profesional</span>
+      </a>
     </div>
-    <div class="contact-item">
-      <span class="c-label">Teléfono</span>
-      <a href="tel:+34669079879" class="c-value">+34 669 079 879</a>
+    <div class="social-card">
+      <a href="https://www.instagram.com/josean_emprende" target="_blank">
+        <span class="s-platform">Instagram</span>
+        <span class="s-handle">@josean_emprende</span>
+        <span class="s-desc">Emprendimiento & visión</span>
+      </a>
     </div>
-    <div class="contact-item">
-      <span class="c-label">Ubicación</span>
-      <span class="c-value" style="font-family:'Cormorant Garamond',serif; font-size:1.2rem;">Sopelana, Vizcaya</span>
+    <div class="social-card">
+      <a href="https://twitter.com/josean_emprende" target="_blank">
+        <span class="s-platform">Twitter / X</span>
+        <span class="s-handle">@josean_emprende</span>
+        <span class="s-desc">Ideas & tendencias</span>
+      </a>
     </div>
-  </div>
-  <div class="social-row reveal">
-    <a href="https://www.linkedin.com/in/joseanborge/" target="_blank" class="social-link">LinkedIn</a>
-    <a href="https://www.instagram.com/josean_emprende" target="_blank" class="social-link">@josean_emprende</a>
-    <a href="https://twitter.com/josean_emprende" target="_blank" class="social-link">Twitter / X</a>
-    <a href="http://dreamers-vc.com/" target="_blank" class="social-link">Dreamers VC</a>
+    <div class="social-card">
+      <a href="http://dreamers-vc.com/" target="_blank">
+        <span class="s-platform">Web Corporativa</span>
+        <span class="s-handle">Dreamers VC</span>
+        <span class="s-desc">dreamers-vc.com</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -941,7 +948,7 @@
   <div class="modal-content" id="modal-content"></div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Navbar scroll
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
@@ -959,7 +966,7 @@
     const links = document.querySelector('.nav-links');
     links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
     if (links.style.display === 'flex') {
-      links.style.cssText = 'display:flex; flex-direction:column; position:fixed; top:70px; left:0; right:0; background:rgba(10,10,10,0.98); padding:32px 40px; gap:24px; z-index:99;';
+      links.style.cssText = 'display:flex; flex-direction:column; position:fixed; top:70px; left:0; right:0; background:rgba(30,30,42,0.99); padding:32px 40px; gap:24px; z-index:99;';
     } else {
       links.style.cssText = '';
     }
@@ -1074,10 +1081,4 @@
     document.getElementById('modal').classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.getElementById('modal').addEventListener('click', (e) => {
-    if (e.target === document.getElementById('modal')) closeModal();
-  });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-</script>
-</body>
-</html>
+  document.getElementB
