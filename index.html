@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jose Antonio Borge | Investor · Entrepreneur · Innovator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f2ee;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gray-dark: #1a1a1a;
+      --gray-mid: #2d2d2d;
+      --gray-text: #888;
+      --accent: #c9a84c;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 60px;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+      transition: background 0.4s;
+    }
+    nav.scrolled { background: rgba(10,10,10,0.97); }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(245,242,238,0.65);
+      text-decoration: none;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 26px; height: 1px; background: var(--white); transition: 0.3s; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 50%);
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+    .hero-text { animation: fadeUp 1s ease both; }
+    .hero-eyebrow {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      margin-bottom: 32px;
+    }
+    .hero-name em { font-style: italic; color: var(--gold); }
+    .hero-tagline {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: rgba(245,242,238,0.55);
+      margin-bottom: 48px;
+      line-height: 2;
+      text-transform: uppercase;
+    }
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block;
+      padding: 14px 36px;
+      background: var(--gold);
+      color: var(--black);
+      text-decoration: none;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-block;
+      padding: 13px 36px;
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.06); }
+
+    .hero-image-wrap {
+      position: relative;
+      animation: fadeUp 1.2s 0.3s ease both;
+    }
+    .hero-image-frame {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .hero-image-frame::before {
+      content: '';
+      position: absolute;
+      top: -20px; left: -20px; right: 20px; bottom: 20px;
+      border: 1px solid rgba(201,168,76,0.25);
+      z-index: 0;
+    }
+    .hero-image-frame::after {
+      content: '';
+      position: absolute;
+      bottom: -30px; right: -30px;
+      width: 120px; height: 120px;
+      background: var(--gold);
+      opacity: 0.06;
+      z-index: 0;
+    }
+    .hero-photo {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: block;
+      filter: grayscale(15%) contrast(1.05);
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: -16px;
+      left: -16px;
+      background: var(--gray-dark);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 18px 24px;
+      z-index: 2;
+    }
+    .hero-badge .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+    }
+    .hero-badge .label {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245,242,238,0.5);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(245,242,238,0.3);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent);
+    }
+
+    /* ── SECTIONS COMMON ── */
+    section { padding: 120px 60px; max-width: 1300px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 60px;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .about-text p {
+      font-size: 0.9rem;
+      line-height: 1.95;
+      color: rgba(245,242,238,0.7);
+      margin-bottom: 20px;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .stat-item { border-left: 2px solid var(--gold); padding-left: 20px; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+    }
+    .stat-desc {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,242,238,0.45);
+      margin-top: 6px;
+      display: block;
+    }
+    .about-highlights { display: flex; flex-direction: column; gap: 24px; }
+    .highlight-card {
+      background: var(--gray-dark);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-left: 3px solid var(--gold);
+      padding: 28px 32px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .highlight-card:hover { background: var(--gray-mid); }
+    .highlight-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .highlight-card p {
+      font-size: 0.75rem;
+      line-height: 1.8;
+      color: rgba(245,242,238,0.5);
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { border-top: 1px solid rgba(255,255,255,0.05); }
+    .exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .exp-card {
+      background: var(--gray-dark);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: background 0.4s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.4s;
+      transform-origin: left;
+    }
+    .exp-card:hover { background: var(--gray-mid); }
+    .exp-card:hover::before { transform: scaleX(1); }
+    .exp-year {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .exp-company {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .exp-role {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,242,238,0.4);
+      margin-bottom: 24px;
+    }
+    .exp-desc {
+      font-size: 0.78rem;
+      line-height: 1.85;
+      color: rgba(245,242,238,0.6);
+    }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .tag {
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold);
+      padding: 4px 12px;
+    }
+
+    /* ── INVESTMENTS ── */
+    #investments {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      background: var(--gray-dark);
+      max-width: 100%;
+      padding: 120px;
+    }
+    .investments-inner { max-width: 1300px; margin: 0 auto; }
+    .inv-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 0; }
+    .inv-card {
+      background: var(--black);
+      padding: 40px 36px;
+      border-top: 2px solid transparent;
+      transition: border-color 0.3s;
+    }
+    .inv-card:hover { border-color: var(--gold); }
+    .inv-sector {
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .inv-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .inv-desc {
+      font-size: 0.73rem;
+      line-height: 1.75;
+      color: rgba(245,242,238,0.45);
+    }
+
+    /* ── EDUCATION / AWARDS ── */
+    #education { border-top: 1px solid rgba(255,255,255,0.05); }
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    .edu-list { display: flex; flex-direction: column; gap: 36px; }
+    .edu-item { display: flex; gap: 24px; }
+    .edu-year-col {
+      flex-shrink: 0;
+      width: 70px;
+      text-align: right;
+    }
+    .edu-year-col span {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .edu-info h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .edu-info p {
+      font-size: 0.72rem;
+      color: rgba(245,242,238,0.45);
+      line-height: 1.7;
+    }
+    .awards-list { display: flex; flex-direction: column; gap: 28px; }
+    .award-item {
+      background: var(--gray-dark);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 28px 32px;
+      position: relative;
+    }
+    .award-icon {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .award-item h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .award-item p {
+      font-size: 0.73rem;
+      color: rgba(245,242,238,0.45);
+      line-height: 1.7;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 64px;
+      margin-bottom: 64px;
+    }
+    .contact-item {
+      background: var(--gray-dark);
+      padding: 48px 32px;
+    }
+    .contact-item a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-item a:hover { color: var(--gold); }
+    .contact-item .c-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .contact-item .c-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+    .social-link {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,242,238,0.45);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.3s, border-color 0.3s;
+      padding-bottom: 2px;
+    }
+    .social-link:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 40px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.65rem;
+      color: rgba(245,242,238,0.25);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,10,0.95);
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s;
+      overflow-y: auto;
+      padding: 60px;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal-close {
+      position: fixed;
+      top: 32px; right: 40px;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245,242,238,0.4);
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: color 0.3s;
+    }
+    .modal-close:hover { color: var(--gold); }
+    .modal-content { max-width: 900px; margin: 0 auto; padding-top: 40px; }
+    .modal-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+    .modal-content .modal-role {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 40px;
+      display: block;
+    }
+    .modal-body p {
+      font-size: 0.88rem;
+      line-height: 2;
+      color: rgba(245,242,238,0.7);
+      margin-bottom: 24px;
+    }
+    .modal-body ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 32px;
+    }
+    .modal-body ul li {
+      font-size: 0.82rem;
+      line-height: 1.85;
+      color: rgba(245,242,238,0.6);
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .modal-body ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-8px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      nav { padding: 20px 32px; }
+      section { padding: 80px 32px; }
+      #investments { padding: 80px 32px; }
+      .hero-content { padding: 0 32px; gap: 48px; }
+      .exp-grid { grid-template-columns: 1fr 1fr; }
+      .inv-grid { grid-template-columns: 1fr 1fr; }
+      footer { padding: 32px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-content { grid-template-columns: 1fr; gap: 48px; padding: 0 24px; }
+      .hero-image-wrap { order: -1; }
+      .hero-image-frame { max-width: 280px; }
+      .hero-name { font-size: 2.8rem; }
+      #about { grid-template-columns: 1fr; gap: 48px; }
+      .exp-grid { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: 1fr; gap: 48px; }
+      .inv-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .modal-overlay { padding: 24px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#">JAB</a>
+  <ul class="nav-links">
+    <li><a href="#about">Perfil</a></li>
+    <li><a href="#experience">Proyectos</a></li>
+    <li><a href="#investments">Inversiones</a></li>
+    <li><a href="#education">Formación</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Madrid · Boston · Bilbao · Miami</p>
+      <h1 class="hero-name">Jose Antonio<br><em>Borge Diaz</em></h1>
+      <p class="hero-tagline">Investor · Entrepreneur · Innovator<br>+20 años construyendo el futuro</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">Contactar</a>
+        <a href="#experience" class="btn-outline">Ver Proyectos</a>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="hero-image-frame">
+        <img class="hero-photo" src="profile.jpg" alt="Jose Antonio Borge Diaz" />
+        <div class="hero-badge">
+          <span class="num">+20</span>
+          <span class="label">Años de experiencia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-text reveal">
+    <p class="section-label">Sobre Mí</p>
+    <h2 class="section-title">Emprendedor.<br><em>Inversor. Innovador.</em></h2>
+    <p>Emprendedor en serie con más de 20 años liderando proyectos propios y en empresa privada. Executive MBA con programa internacional ejecutivo en <strong>Georgetown University</strong> (USA) y estancia en <strong>MIT</strong> (Massachusetts Institute of Technology), donde fui finalista en el <strong>MIT Water Innovation Prize 2017</strong>.</p>
+    <p>Construyo desde la visión. Desde la disrupción. Desde la convicción de que la tecnología transforma vidas cuando está al servicio del ser humano. He fundado y co-fundado compañías en fintech, biotech, oceanografía e innovación abierta, siempre con un enfoque global y equipos de primer nivel.</p>
+    <div class="about-stats">
+      <div class="stat-item">
+        <span class="stat-num">5+</span>
+        <span class="stat-desc">Startups fundadas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">3</span>
+        <span class="stat-desc">Inversiones Biotech USA</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">MIT</span>
+        <span class="stat-desc">Water Innovation Prize</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">4</span>
+        <span class="stat-desc">Continentes operando</span>
+      </div>
+    </div>
+  </div>
+  <div class="about-highlights reveal">
+    <div class="highlight-card">
+      <h4>Blockchain & Fintech</h4>
+      <p>Pionero en la adopción de tecnología blockchain en España. CEO de Codify Cash, app fintech con modelo disruptivo basado en activos digitales y tokens propios.</p>
+    </div>
+    <div class="highlight-card">
+      <h4>Venture Capital & Biotech</h4>
+      <p>Founding Partner de Dreamers VC, con inversiones en Elicio Therapeutics, Oncoheroes Biosciences y Astrocyte Pharmaceuticals desde Boston.</p>
+    </div>
+    <div class="highlight-card">
+      <h4>Innovation Ecosystem Builder</h4>
+      <p>Creador de ecosistemas de innovación, aceleradoras corporativas y programas de Venture Building en el País Vasco y a nivel internacional.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="max-width:100%; padding-left:0; padding-right:0; padding-top:120px; padding-bottom:120px;">
+  <div style="max-width:1300px; margin:0 auto; padding: 0 60px;">
+    <p class="section-label reveal">Trayectoria</p>
+    <h2 class="section-title reveal">Proyectos &<br><em>Experiencia</em></h2>
+  </div>
+  <div class="exp-grid reveal">
+
+    <a class="exp-card" onclick="openModal('codify')">
+      <span class="exp-year">2022 — Actualidad</span>
+      <h3 class="exp-company">Codify Cash</h3>
+      <p class="exp-role">CEO & Founder</p>
+      <p class="exp-desc">App fintech con modelo disruptivo basado en Blockchain. Token propio participando en activos digitales. Mercados B2B y B2C.</p>
+      <div class="exp-tags">
+        <span class="tag">Fintech</span>
+        <span class="tag">Blockchain</span>
+        <span class="tag">Token</span>
+      </div>
+    </a>
+
+    <a class="exp-card" onclick="openModal('dreamersvc')">
+      <span class="exp-year">2019 — 2022</span>
+      <h3 class="exp-company">Dreamers VC</h3>
+      <p class="exp-role">Founding Partner</p>
+      <p class="exp-desc">Venture Capital enfocado en etapas early-stage. Inversiones en biotecnología USA. Conectamos emprendedores con capital inteligente.</p>
+      <div class="exp-tags">
+        <span class="tag">VC</span>
+        <span class="tag">Biotech</span>
+        <span class="tag">Early-Stage</span>
+      </div>
+    </a>
+
+    <a class="exp-card" onclick="openModal('factory')">
+      <span class="exp-year">2017 — 2019</span>
+      <h3 class="exp-company">Dreamers Factory</h3>
+      <p class="exp-role">CEO & Founder</p>
+      <p class="exp-desc">Ecosistema de innovación avanzada. Aceleración corporativa, Open Innovation, Corporate VC y Venture Building.</p>
+      <div class="exp-tags">
+        <span class="tag">Innovación</span>
+        <span class="tag">Corporate VC</span>
+        <span class="tag">Startups</span>
+      </div>
+    </a>
+
+    <a class="exp-card" onclick="openModal('aquadat')">
+      <span class="exp-year">2014 — 2017</span>
+      <h3 class="exp-company">AquaDAT</h3>
+      <p class="exp-role">CEO & Founder</p>
+      <p class="exp-desc">Sistema innovador de Big Data marino. Finalista MIT Water Innovation Prize. Única empresa europea seleccionada.</p>
+      <div class="exp-tags">
+        <span class="tag">Big Data</span>
+        <span class="tag">MIT Prize</span>
+        <span class="tag">Oceanografía</span>
+      </div>
+    </a>
+
+    <a class="exp-card" onclick="openModal('initland')">
+      <span class="exp-year">2014 — 2016</span>
+      <h3 class="exp-company">CX Initland</h3>
+      <p class="exp-role">Gerente</p>
+      <p class="exp-desc">Centro de Innovación y Emprendimiento dentro de Bilbao Berrikuntza Factoría. Más de 21 proyectos incubados.</p>
+      <div class="exp-tags">
+        <span class="tag">Incubación</span>
+        <span class="tag">Innovación</span>
+        <span class="tag">Bilbao</span>
+      </div>
+    </a>
+
+    <a class="exp-card" onclick="openModal('cx')">
+      <span class="exp-year">2007 — 2014</span>
+      <h3 class="exp-company">CX Surfboards</h3>
+      <p class="exp-role">Business Development</p>
+      <p class="exp-desc">Responsable de Desarrollo de Negocio e Innovación. Fabricación artesanal y en serie de tablas de Surf y Paddle Surf personalizadas.</p>
+      <div class="exp-tags">
+        <span class="tag">Negocio</span>
+        <span class="tag">Innovación</span>
+        <span class="tag">Fabricación</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- INVESTMENTS -->
+<div id="investments" style="background: var(--gray-dark); padding: 120px 60px;">
+  <div class="investments-inner">
+    <p class="section-label reveal">Portfolio</p>
+    <h2 class="section-title reveal">Inversiones &<br><em>Advisory</em></h2>
+    <div class="inv-grid reveal">
+      <div class="inv-card">
+        <p class="inv-sector">Biotech · Boston, USA</p>
+        <h3 class="inv-name">Elicio Therapeutics</h3>
+        <p class="inv-desc">Terapias innovadoras de inmunooncología. Desarrollo de tratamientos contra el cáncer mediante plataforma de nanopartículas.</p>
+      </div>
+      <div class="inv-card">
+        <p class="inv-sector">Biotech · Boston, USA</p>
+        <h3 class="inv-name">Oncoheroes Biosciences</h3>
+        <p class="inv-desc">Oncología pediátrica. Tratamientos dirigidos para cánceres infantiles con alto potencial terapéutico y de mercado.</p>
+      </div>
+      <div class="inv-card">
+        <p class="inv-sector">Biotech · Boston, USA</p>
+        <h3 class="inv-name">Astrocyte Pharmaceuticals</h3>
+        <p class="inv-desc">Neurología y enfermedades del sistema nervioso central. Abordaje innovador a través de células astrogliales.</p>
+      </div>
+      <div class="inv-card">
+        <p class="inv-sector">Health · Advisory</p>
+        <h3 class="inv-name">Cancerappy</h3>
+        <p class="inv-desc">Board of Advisors. Plataforma biotech para acelerar la investigación oncológica. Mercado estimado de $200–300M globales.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-label reveal">Formación & Logros</p>
+  <h2 class="section-title reveal">Educación &<br><em>Reconocimientos</em></h2>
+  <div class="edu-grid">
+    <div class="edu-list reveal">
+      <div class="edu-item">
+        <div class="edu-year-col"><span>2014</span></div>
+        <div class="edu-info">
+          <h4>Georgetown University</h4>
+          <p>International Executive Program · Business Administration, Management & Operations · Washington D.C., USA</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year-col"><span>2013–14</span></div>
+        <div class="edu-info">
+          <h4>ESEUNE Business School</h4>
+          <p>Executive MBA · Especialización en Dirección General e Innovación Empresarial</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year-col"><span>2002–03</span></div>
+        <div class="edu-info">
+          <h4>Southampton City College</h4>
+          <p>Certificate in Advanced English · Southampton, United Kingdom</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year-col"><span>1993–02</span></div>
+        <div class="edu-info">
+          <h4>Universidad del País Vasco</h4>
+          <p>Licenciado en Ciencias Sociales y de la Administración</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year-col"><span>Cert.</span></div>
+        <div class="edu-info">
+          <h4>ITIL Certifications</h4>
+          <p>ITIL Foundations · ITIL Service Design · ITIL CMDB</p>
+        </div>
+      </div>
+    </div>
+    <div class="awards-list reveal">
+      <div class="award-item">
+        <span class="award-icon">🏆</span>
+        <h4>MIT Water Innovation Prize — Finalista</h4>
+        <p>Único proyecto europeo seleccionado en la competición de startups del MIT Water Club. AquaDAT optó a hasta $30K en subvenciones para innovación acuática. Massachusetts Institute of Technology, 2017.</p>
+      </div>
+      <div class="award-item">
+        <span class="award-icon">🎯</span>
+        <h4>Mentor — Gaztempresa / Caja Laboral</h4>
+        <p>Mentor oficial para proyectos digitales de alto riesgo y alto potencial de crecimiento bajo el programa Gaztempresa.</p>
+      </div>
+      <div class="award-item">
+        <span class="award-icon">🍽️</span>
+        <h4>Mentor — Basque Culinary Center</h4>
+        <p>Mentor de startups en el programa Culinary Action del Basque Culinary Center, especializado en proyectos foodtech.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label reveal">Conecta</p>
+  <h2 class="section-title reveal">Hablemos de<br><em>tu proyecto</em></h2>
+  <div class="contact-grid reveal">
+    <div class="contact-item">
+      <span class="c-label">Email</span>
+      <a href="mailto:jborge@icloud.com" class="c-value">jborge@icloud.com</a>
+    </div>
+    <div class="contact-item">
+      <span class="c-label">Teléfono</span>
+      <a href="tel:+34669079879" class="c-value">+34 669 079 879</a>
+    </div>
+    <div class="contact-item">
+      <span class="c-label">Ubicación</span>
+      <span class="c-value" style="font-family:'Cormorant Garamond',serif; font-size:1.2rem;">Sopelana, Vizcaya</span>
+    </div>
+  </div>
+  <div class="social-row reveal">
+    <a href="https://www.linkedin.com/in/joseanborge/" target="_blank" class="social-link">LinkedIn</a>
+    <a href="https://www.instagram.com/josean_emprende" target="_blank" class="social-link">@josean_emprende</a>
+    <a href="https://twitter.com/josean_emprende" target="_blank" class="social-link">Twitter / X</a>
+    <a href="http://dreamers-vc.com/" target="_blank" class="social-link">Dreamers VC</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Jose Antonio Borge Diaz. Todos los derechos reservados.</span>
+  <span>Madrid · Boston · Bilbao · Miami · Dubai</span>
+</footer>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal">
+  <button class="modal-close" onclick="closeModal()">✕ Cerrar</button>
+  <div class="modal-content" id="modal-content"></div>
+</div>
+
+<script>
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Mobile menu
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    if (links.style.display === 'flex') {
+      links.style.cssText = 'display:flex; flex-direction:column; position:fixed; top:70px; left:0; right:0; background:rgba(10,10,10,0.98); padding:32px 40px; gap:24px; z-index:99;';
+    } else {
+      links.style.cssText = '';
+    }
+  }
+
+  // Modal data
+  const modals = {
+    codify: {
+      title: 'Codify Cash',
+      role: 'CEO & Founder · 2022 — Actualidad · Madrid',
+      content: `
+        <p>Codify es una app fintech de nueva generación que presenta un modelo disruptivo y altamente tecnológico basado en Blockchain, con un producto destinado a alojar un Token propio que participe de activos digitales. Se focaliza en los mercados B2B y B2C.</p>
+        <p>Desde la dirección general, he liderado la captación de fondos, la contratación de equipos de tecnología y marketing, así como la gestión de alianzas estratégicas con partners de primer nivel.</p>
+        <ul>
+          <li>Partners estratégicos: Pecunia Cards, BBVA, MyInvestor</li>
+          <li>Modelo de ahorro basado en tecnología Blockchain</li>
+          <li>Transparencia, seguridad y flexibilidad como pilares del producto</li>
+          <li>Doble mercado: B2B (empresas) y B2C (usuarios particulares)</li>
+          <li>Captación de fondos y expansión del equipo tecnológico</li>
+        </ul>
+      `
+    },
+    dreamersvc: {
+      title: 'Dreamers VC',
+      role: 'Founding Partner · 2019 — 2022 · Bilbao / Boston',
+      content: `
+        <p>Dreamers Ventures nace de un equipo experimentado de Fundadores para ayudar a otros emprendedores en aquellas etapas donde el capital es más necesario. Si eres emprendedor en early-stage, desde Dreamers enlazamos proyectos con capital inteligente.</p>
+        <p>Nos involucramos activamente como parte del equipo, ayudando a desarrollar la empresa en los centros internacionales donde puede crecer más rápido.</p>
+        <ul>
+          <li><strong>Elicio Therapeutics</strong> — Inmunooncología, Boston USA</li>
+          <li><strong>Oncoheroes Biosciences</strong> — Oncología pediátrica, Boston USA</li>
+          <li><strong>Astrocyte Pharmaceuticals</strong> — Neurología CNS, Boston USA</li>
+          <li>Red internacional en Madrid, Boston, Bilbao, Miami y Dubai</li>
+          <li>Foco en: Biotech, AI, Fintech, Blockchain, Health, Mobility</li>
+        </ul>
+      `
+    },
+    factory: {
+      title: 'Dreamers Factory Innovation Outpost',
+      role: 'CEO & Founder · 2017 — 2019 · Bilbao',
+      content: `
+        <p>Dreamers Factory es un espacio de innovación avanzada: un ecosistema de aceleración colaborativa enfocado en cuatro áreas estratégicas para transformar tanto startups como grandes corporaciones.</p>
+        <p>Surgió para ayudar a emprendedores y empresas a desarrollar startups, identificar talento innovador y seguir el ritmo de transformación que marcan los mejores ecosistemas globales.</p>
+        <ul>
+          <li>Innovación Abierta con grandes corporaciones</li>
+          <li>Misión Scouting de talento y tecnología</li>
+          <li>Compartir recursos y espacios de co-creación</li>
+          <li>Aceleración Corporativa y asesoramiento en M&A</li>
+          <li>Corporate Venture Capital para proyectos acelerados</li>
+          <li>Creación de Startups y Spin-offs propios</li>
+        </ul>
+      `
+    },
+    aquadat: {
+      title: 'AquaDAT',
+      role: 'CEO & Founder · 2014 — 2017 · Bilbao',
+      content: `
+        <p>AquaDAT es un innovador sistema de obtención de datos del fondo marino mediante dispositivos acoplados al casco de embarcaciones o tablas de surf. Mide profundidad, temperatura y salinidad en cada punto con posicionamiento preciso.</p>
+        <p>Con tecnologías de desarrollo propio, AquaDAT lidera la precisión en la recogida y tratamiento del "Big Data del mar", ofreciendo soluciones a grandes empresas TI, centros de investigación marina y administraciones públicas.</p>
+        <ul>
+          <li><strong>Finalista MIT Water Innovation Prize 2017</strong> — MIT Water Club, Massachusetts</li>
+          <li>Única empresa europea seleccionada entre todos los participantes</li>
+          <li>Integración con cascos de barcos y tablas de surf</li>
+          <li>Big Data marino: profundidad, temperatura y salinidad</li>
+          <li>Clientes potenciales: empresas TI, centros de investigación, administraciones</li>
+        </ul>
+      `
+    },
+    initland: {
+      title: 'CX Initland — BBF',
+      role: 'Gerente · 2014 — 2016 · Bilbao',
+      content: `
+        <p>Initland BBF es el Centro de Innovación y Emprendimiento ubicado dentro de Bilbao Berrikuntza Factoría (BBF), en el corazón de Bilbao. Un ecosistema urbano de aprendizaje, innovación y emprendimiento impulsado por Mondragón Unibertsitatea en alianza con Grupo init.</p>
+        <p>También gestioné Eutokia, el Centro de Innovación Social de Bilbao, con más de 21 proyectos incubados.</p>
+        <ul>
+          <li>Gestión del ecosistema de innovación dentro de BBF</li>
+          <li>+21 proyectos incubados en Eutokia (Centro de Innovación Social)</li>
+          <li>Alianza estratégica con Mondragón Unibertsitatea y Grupo init</li>
+          <li>Punto de encuentro para ideas, proyectos e innovadores de Bilbao</li>
+        </ul>
+      `
+    },
+    cx: {
+      title: 'CX Surfboards',
+      role: 'Business Development · 2007 — 2014 · Sopelana',
+      content: `
+        <p>Responsable de Desarrollo de Negocio e Innovación en CX Surfboards, empresa especializada en la fabricación artesanal y en serie de tablas de Surf y Paddle Surf personalizadas.</p>
+        <p>CX cuenta con la maquinaria más puntera del sector: todos los diseños se realizan por ordenador y se mecanizan mediante brazo robotizado, logrando perfección en las formas tanto para fabricación personalizada como en serie.</p>
+        <ul>
+          <li>Desarrollo estratégico de negocio y expansión de mercado</li>
+          <li>Liderazgo en innovación de procesos de fabricación</li>
+          <li>Sistema de diseño por CAD y mecanizado robotizado</li>
+          <li>Capacidad de escaneo y clonado de tablas</li>
+          <li>Materiales de más alto nivel: fibras, resinas, blanks y quillas premium</li>
+        </ul>
+      `
+    }
+  };
+
+  function openModal(id) {
+    const m = modals[id];
+    if (!m) return;
+    document.getElementById('modal-content').innerHTML = `
+      <h2>${m.title}</h2>
+      <span class="modal-role">${m.role}</span>
+      <div class="modal-body">${m.content}</div>
+    `;
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('modal').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('modal')) closeModal();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
