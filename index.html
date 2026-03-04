@@ -479,6 +479,16 @@
     margin-top: 2rem;
   }
 
+  .inv-grid .inv-item:nth-child(4) {
+    grid-column: span 1;
+  }
+
+  .inv-grid .inv-item:nth-last-child(-n+2):first-child ~ .inv-item:nth-child(4),
+  .inv-grid .inv-item:nth-child(4):last-child,
+  .inv-grid .inv-item:nth-child(5):last-child {
+    grid-column: span 1;
+  }
+
   .inv-item {
     border: 1px solid rgba(197,165,90,0.2);
     padding: 2rem;
@@ -1037,11 +1047,11 @@
   <div style="max-width: 1400px; margin: 0 auto;">
     <div class="section-header fade-in">
       <span class="section-tag">03 — Portfolio</span>
-      <h2>Inversiones en<br><em>Biotecnología</em></h2>
+      <h2>Inversiones en Biotech,<br><em>AI &amp; Oncología</em></h2>
     </div>
-    <p class="fade-in" style="color: rgba(253,252,250,0.6); max-width: 600px; margin-bottom: 3rem; font-size: 0.95rem; line-height: 1.8; font-weight: 300;">
-      A través de Dreamers Ventures, inversiones estratégicas en biotecnología de vanguardia 
-      en el ecosistema americano, con foco en oncología, neurología y medicina de precisión.
+    <p class="fade-in" style="color: rgba(253,252,250,0.6); max-width: 650px; margin-bottom: 3rem; font-size: 0.95rem; line-height: 1.8; font-weight: 300;">
+      Inversiones estratégicas en empresas de vanguardia en biotecnología, inteligencia artificial 
+      e investigación oncológica, con presencia en el ecosistema americano, europeo y español.
     </p>
     <div class="inv-grid fade-in">
       <div class="inv-item">
@@ -1058,6 +1068,16 @@
         <div class="inv-sector">Neurología · Boston, MA</div>
         <div class="inv-name">Astrocyte Pharmaceuticals</div>
         <div class="inv-desc">Plataforma terapéutica innovadora dirigida a enfermedades neurodegenerativas, con enfoque en la biología de los astrocitos del sistema nervioso central.</div>
+      </div>
+      <div class="inv-item">
+        <div class="inv-sector">Generative AI · Life Sciences · Los Angeles, CA</div>
+        <div class="inv-name">Narrativa AI</div>
+        <div class="inv-desc">Líder global en automatización de contenido mediante IA generativa. Su plataforma Narrativa® Navigator transforma datos clínicos complejos en documentación regulatoria lista para presentar, acelerando el desarrollo de fármacos para farmacéuticas, CROs y biotechs como Pfizer y Blood Cancer United.</div>
+      </div>
+      <div class="inv-item">
+        <div class="inv-sector">AI Drug Discovery · Oncología · Bilbao, España</div>
+        <div class="inv-name">CancerAppy</div>
+        <div class="inv-desc">Biotech especializada en el descubrimiento y desarrollo de nuevas dianas terapéuticas contra el cáncer mediante metodología propia de inteligencia artificial. Su plataforma analiza hasta mil millones de compuestos identificando anticuerpos (ADCs), inhibidores de kinasas y PROTACs de primera clase con alta precisión y mínimos falsos positivos.</div>
       </div>
     </div>
   </div>
@@ -1172,6 +1192,14 @@
           <div class="edu-degree">ITIL Foundations · ITIL Service Design · ITIL CMDB</div>
         </div>
         <div class="edu-location">IT Service Management</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-year">2025</div>
+        <div>
+          <div class="edu-school">Anthropic AI</div>
+          <div class="edu-degree">Claude 101 · Claude Code in Action · AI Fluency: Framework &amp; Foundations · MCP (Model Context Protocol)</div>
+        </div>
+        <div class="edu-location">Artificial Intelligence</div>
       </div>
     </div>
   </div>
